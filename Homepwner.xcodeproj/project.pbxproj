@@ -14,6 +14,7 @@
 		A36875F31F46FA8B00C57E29 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36875F21F46FA8B00C57E29 /* ItemsViewController.swift */; };
 		A36875F51F46FF3700C57E29 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36875F41F46FF3700C57E29 /* Item.swift */; };
 		A36875F71F470BA900C57E29 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36875F61F470BA900C57E29 /* ItemStore.swift */; };
+		A36875F91F49F4D700C57E29 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36875F81F49F4D700C57E29 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A36875F21F46FA8B00C57E29 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		A36875F41F46FF3700C57E29 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A36875F61F470BA900C57E29 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		A36875F81F49F4D700C57E29 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				A36875E71F46D5CF00C57E29 /* Assets.xcassets */,
 				A36875E91F46D5CF00C57E29 /* LaunchScreen.storyboard */,
 				A36875EC1F46D5CF00C57E29 /* Info.plist */,
+				A36875F81F49F4D700C57E29 /* ItemCell.swift */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				A36875F51F46FF3700C57E29 /* Item.swift in Sources */,
 				A36875F71F470BA900C57E29 /* ItemStore.swift in Sources */,
 				A36875E11F46D5CF00C57E29 /* AppDelegate.swift in Sources */,
+				A36875F91F49F4D700C57E29 /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
