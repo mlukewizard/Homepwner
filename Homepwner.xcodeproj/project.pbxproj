@@ -24,8 +24,8 @@
 		A36875EA1F46D5CF00C57E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A36875EC1F46D5CF00C57E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A36875F21F46FA8B00C57E29 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
-		A36875F41F46FF3700C57E29 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../Item.swift; sourceTree = "<group>"; };
-		A36875F61F470BA900C57E29 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemStore.swift; path = ../ItemStore.swift; sourceTree = "<group>"; };
+		A36875F41F46FF3700C57E29 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A36875F61F470BA900C57E29 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +42,8 @@
 		A36875D41F46D5CF00C57E29 = {
 			isa = PBXGroup;
 			children = (
+				A36875F61F470BA900C57E29 /* ItemStore.swift */,
+				A36875F41F46FF3700C57E29 /* Item.swift */,
 				A36875DF1F46D5CF00C57E29 /* Homepwner */,
 				A36875DE1F46D5CF00C57E29 /* Products */,
 			);
@@ -58,8 +60,6 @@
 		A36875DF1F46D5CF00C57E29 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
-				A36875F41F46FF3700C57E29 /* Item.swift */,
-				A36875F61F470BA900C57E29 /* ItemStore.swift */,
 				A36875E01F46D5CF00C57E29 /* AppDelegate.swift */,
 				A36875E41F46D5CF00C57E29 /* Main.storyboard */,
 				A36875F21F46FA8B00C57E29 /* ItemsViewController.swift */,
