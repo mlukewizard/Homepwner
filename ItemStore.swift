@@ -12,20 +12,20 @@ class ItemStore{
     var allItems = [Item]()
     
     init(){
-        if let archivedItems = NSKeyedUnarchiver.unarchiveObjectWithFile(itemArchiveURL.path!) as? [Item]{
+        if let archivedItems = NSKeyedUnarchiver.unarchiveObject(withFile: itemArchiveURL.path) as? [Item]{
             allItems += archivedItems
         }
     }
     
-    let itemArchiveURL: NSURL = {
-        let documentsDirectories = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    let itemArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
-        return documentDirectory.URLByAppendingPathComponent("items.archive")
+        return documentDirectory.appendingPathComponent("items.archive")
     }()
     
     func saveChanges() -> Bool {
-        print("Saving items to: \(itemArchiveURL.path!)")
-        return NSKeyedArchiver.archiveRootObject(allItems, toFile: itemArchiveURL.path!)
+        print("Saving items to: \(itemArchiveURL.path)")
+        return NSKeyedArchiver.archiveRootObject(allItems, toFile: itemArchiveURL.path)
     }
     
     func createItem() -> Item{
@@ -34,13 +34,13 @@ class ItemStore{
         return newItem
     }
     
-    func removeItem(item: Item){
-        if let index = allItems.indexOf(item){
-            allItems.removeAtIndex(index)
+    func removeItem(_ item: Item){
+        if let index = allItems.index(of: item){
+            allItems.remove(at: index)
         }
     }
     
-    func moveItemAtIndex(fromIndex: Int, toIndex: Int){
+    func moveItemAtIndex(_ fromIndex: Int, toIndex: Int){
         if fromIndex == toIndex{
             return
         }
@@ -49,10 +49,10 @@ class ItemStore{
         let movedItem = allItems[fromIndex]
         
         //remove item from array
-        allItems.removeAtIndex(fromIndex)
+        allItems.remove(at: fromIndex)
         
         //Insert item in array at new location
-        allItems.insert(movedItem, atIndex: toIndex)
+        allItems.insert(movedItem, at: toIndex)
     }
 
 }

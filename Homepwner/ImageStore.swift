@@ -9,16 +9,16 @@
 import UIKit
 
 class ImageStore {
-    let cache = NSCache()
+    let cache = NSCache<AnyObject, AnyObject>()
     
-    func imageURLForKey(key: String) -> NSURL{
-        let documentsDirectories = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    func imageURLForKey(_ key: String) -> URL{
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
-        return documentDirectory.URLByAppendingPathComponent(key)
+        return documentDirectory.appendingPathComponent(key)
     }
     
-    func setImage(image: UIImage, forKey key: String){
-        cache.setObject(image, forKey: key)
+    func setImage(_ image: UIImage, forKey key: String){
+        cache.setObject(image, forKey: key as AnyObject)
         
         //Create full URL for image
         let imageURL = imageURLForKey(key)
@@ -26,30 +26,30 @@ class ImageStore {
         //Turn image into JPEG data
         if let data = UIImageJPEGRepresentation(image, 0.5){
             //Write it to full URL
-            data.writeToURL(imageURL, atomically: true)
+            try? data.write(to: imageURL, options: [.atomic])
         }
     }
     
-    func imageForKey(key:String) -> UIImage? {
-        if let existingImage = cache.objectForKey(key) as? UIImage{
+    func imageForKey(_ key:String) -> UIImage? {
+        if let existingImage = cache.object(forKey: key as AnyObject) as? UIImage{
             return existingImage
         }
         
         let imageURL = imageURLForKey(key)
-        guard let imageFromDisk = UIImage(contentsOfFile: imageURL.path!) else{
+        guard let imageFromDisk = UIImage(contentsOfFile: imageURL.path) else{
             return nil
         }
         
-        cache.setObject(imageFromDisk, forKey: key)
+        cache.setObject(imageFromDisk, forKey: key as AnyObject)
         return imageFromDisk
     }
     
-    func deleteImageForKey(key: String) {
-        cache.removeObjectForKey(key)
+    func deleteImageForKey(_ key: String) {
+        cache.removeObject(forKey: key as AnyObject)
         
         let imageURL = imageURLForKey(key)
         do{
-            try NSFileManager.defaultManager().removeItemAtURL(imageURL)
+            try FileManager.default.removeItem(at: imageURL)
         }
         catch {
             print("Error removing image from disk")
